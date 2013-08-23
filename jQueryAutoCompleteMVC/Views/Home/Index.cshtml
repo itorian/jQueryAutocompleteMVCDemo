@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h3>Autocomplete with jQuery</h3>
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-2.0.3.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+
+<input type="text" data-autocomplete-source="@Url.Action("QuickSearch", "Home")"/>
+
+<script>
+    $("input[data-autocomplete-source]").each(function () {
+        var target = $(this);
+        target.autocomplete({ source: target.attr("data-autocomplete-source") });
+    });
+</script>
